@@ -1171,7 +1171,7 @@
           </h2>
 
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Completá estas preguntas para que podamos conocer en qué momento estás y explicarte cómo funciona GoodLife.
+            Dejanos tus datos y te contactamos para contarte cómo funciona GoodLife.
             Después decidís vos si la oportunidad tiene sentido para tu vida.
           </p>
 
@@ -1182,208 +1182,6 @@
           id="opportunity-form"
           onsubmit="return enviarPorWhatsapp(event)"
         >
-
-          <!-- MOTIVACIÓN -->
-          <div class="mb-10">
-
-            <p class="font-bold text-xl text-primary text-center mb-5">
-              ¿Qué estás buscando principalmente?
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-3">
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="situacion"
-                  value="Quiero construir una actividad que pueda convertirse en mi ingreso principal"
-                  required
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Quiero construir una actividad que pueda convertirse en mi ingreso principal
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="situacion"
-                  value="Quiero generar más ingresos y después evaluar cuánto crecer"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Quiero generar más ingresos y después evaluar cuánto crecer
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="situacion"
-                  value="Ya emprendo y busco estructura para escalar"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Ya emprendo y busco una estructura para escalar
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="situacion"
-                  value="Estoy explorando nuevas oportunidades"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Estoy explorando nuevas oportunidades
-                </span>
-
-              </label>
-
-            </div>
-
-          </div>
-
-
-          <!-- TIEMPO -->
-          <div class="mb-10">
-
-            <p class="font-bold text-xl text-primary text-center mb-5">
-              ¿Cuánto tiempo podrías dedicar inicialmente?
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-3">
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="disponibilidad"
-                  value="Menos de 5 horas semanales"
-                  required
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Menos de 5 horas
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="disponibilidad"
-                  value="Entre 5 y 15 horas semanales"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Entre 5 y 15 horas
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="disponibilidad"
-                  value="Más de 15 horas semanales"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Más de 15 horas
-                </span>
-
-              </label>
-
-            </div>
-
-          </div>
-
-
-          <!-- EXPERIENCIA -->
-          <div class="mb-10">
-
-            <p class="font-bold text-xl text-primary text-center mb-5">
-              ¿Tenés experiencia vendiendo?
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-3">
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="experiencia"
-                  value="Sí"
-                  required
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Sí
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="experiencia"
-                  value="No, sería mi primera vez"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  No, sería mi primera vez
-                </span>
-
-              </label>
-
-
-              <label class="quiz-option">
-
-                <input
-                  class="sr-only"
-                  type="radio"
-                  name="experiencia"
-                  value="Vendí, pero nunca desarrollé equipos"
-                >
-
-                <span class="block border-2 border-gray-200 rounded-xl p-4 text-center">
-                  Vendí, pero nunca desarrollé equipos
-                </span>
-
-              </label>
-
-            </div>
-
-          </div>
-
 
           <!-- DATOS -->
           <div class="grid md:grid-cols-2 gap-4">
@@ -1550,9 +1348,6 @@
       const form = event.target;
       const data = new FormData(form);
 
-      const situacion = data.get("situacion") || "-";
-      const disponibilidad = data.get("disponibilidad") || "-";
-      const experiencia = data.get("experiencia") || "-";
       const nombre = data.get("nombre") || "-";
       const email = data.get("email") || "-";
       const whatsapp = data.get("whatsapp") || "-";
@@ -1561,10 +1356,7 @@
       if (typeof fbq === "function") {
 
         fbq("track", "Lead", {
-          content_name: "Formulario oportunidad GoodLife",
-          situacion: situacion,
-          disponibilidad: disponibilidad,
-          experiencia: experiencia
+          content_name: "Formulario oportunidad GoodLife"
         });
 
       }
@@ -1574,10 +1366,7 @@
         "*Nombre:* " + encodeURIComponent(nombre) + "%0A" +
         "*Email:* " + encodeURIComponent(email) + "%0A" +
         "*WhatsApp:* " + encodeURIComponent(whatsapp) + "%0A" +
-        "*Provincia:* " + encodeURIComponent(provincia) + "%0A%0A" +
-        "*Qué estoy buscando:* " + encodeURIComponent(situacion) + "%0A" +
-        "*Disponibilidad:* " + encodeURIComponent(disponibilidad) + "%0A" +
-        "*Experiencia:* " + encodeURIComponent(experiencia);
+        "*Provincia:* " + encodeURIComponent(provincia);
 
       const url =
         "https://wa.me/" +
