@@ -1147,21 +1147,14 @@
         >
 
           <!-- DATOS -->
-          <div class="grid md:grid-cols-2 gap-4">
+          <div class="grid md:grid-cols-3 gap-4">
 
             <input
               name="nombre"
               required
               type="text"
+              autocomplete="name"
               placeholder="Nombre y apellido"
-              class="bg-soft border-0 rounded-xl p-4 focus:ring-2 focus:ring-primary"
-            >
-
-            <input
-              name="email"
-              required
-              type="email"
-              placeholder="Email"
               class="bg-soft border-0 rounded-xl p-4 focus:ring-2 focus:ring-primary"
             >
 
@@ -1169,21 +1162,24 @@
               name="whatsapp"
               required
               type="tel"
+              inputmode="tel"
+              autocomplete="tel"
               placeholder="WhatsApp"
               class="bg-soft border-0 rounded-xl p-4 focus:ring-2 focus:ring-primary"
             >
 
             <input
-              name="provincia"
+              name="ciudad"
               required
               type="text"
-              placeholder="Provincia"
+              autocomplete="address-level2"
+              placeholder="Ciudad"
               class="bg-soft border-0 rounded-xl p-4 focus:ring-2 focus:ring-primary"
             >
 
             <button
               type="submit"
-              class="md:col-span-2 bg-primary text-white rounded-xl py-5 font-bold text-lg mt-4 hover:opacity-90"
+              class="md:col-span-3 bg-primary text-white rounded-xl py-5 font-bold text-lg mt-4 hover:opacity-90"
             >
               QUIERO CONOCER LA OPORTUNIDAD
             </button>
@@ -1316,8 +1312,11 @@
 
   <!-- WHATSAPP -->
   <a
-    href="#form"
-    aria-label="Contactar por WhatsApp"
+    href="https://wa.me/5491132307795?text=Hola!%20Quiero%20conocer%20la%20oportunidad%20de%20GoodLife."
+    target="_blank"
+    rel="noopener noreferrer"
+    onclick="if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'WhatsApp directo' }); }"
+    aria-label="Escribinos por WhatsApp"
     class="fixed bottom-5 right-5 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition"
   >
     <svg
@@ -1344,9 +1343,8 @@
       const data = new FormData(form);
 
       const nombre = data.get("nombre") || "-";
-      const email = data.get("email") || "-";
       const whatsapp = data.get("whatsapp") || "-";
-      const provincia = data.get("provincia") || "-";
+      const ciudad = data.get("ciudad") || "-";
 
       if (typeof fbq === "function") {
 
@@ -1359,9 +1357,8 @@
       const mensaje =
         "Hola! Quiero conocer la oportunidad de GoodLife.%0A%0A" +
         "*Nombre:* " + encodeURIComponent(nombre) + "%0A" +
-        "*Email:* " + encodeURIComponent(email) + "%0A" +
         "*WhatsApp:* " + encodeURIComponent(whatsapp) + "%0A" +
-        "*Provincia:* " + encodeURIComponent(provincia);
+        "*Ciudad:* " + encodeURIComponent(ciudad);
 
       const url =
         "https://wa.me/" +
